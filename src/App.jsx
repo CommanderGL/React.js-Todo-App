@@ -49,6 +49,10 @@ const App = () => {
 
 		setTodos(newTodos)
 	}
+
+	const clearAll = () => {
+		setTodos([])
+	}
 	
 	return (
 		<>
@@ -56,6 +60,7 @@ const App = () => {
 			<input ref={todoNameRef} type="text" placeholder="Get Bananas..." />
 			<button onClick={addTodo} >Add Todo</button>
 			<button onClick={clearTodos}>Clear Complete</button>
+			<button onClick={clearAll}>Clear All</button>
 			<div>{todos.filter(todo => !todo.complete).length} Left To Do</div>
 		</>
 	);
