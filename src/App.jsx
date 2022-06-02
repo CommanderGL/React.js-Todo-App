@@ -38,10 +38,21 @@ const App = () => {
 		const newTodos = todos.filter(todo => !todo.complete)
 		setTodos(newTodos)
 	}
+
+	const removeTodo = id => {
+		const newTodos = []
+		
+		todos.forEach(todo => {
+			if (todo.id == id) return
+			newTodos.push(todo)
+		})
+
+		setTodos(newTodos)
+	}
 	
 	return (
 		<>
-			<TodoList todos={todos} toggleTodo={toggleTodo} />
+			<TodoList todos={todos} toggleTodo={toggleTodo} removeTodo={removeTodo} />
 			<input ref={todoNameRef} type="text" placeholder="Get Bananas..." />
 			<button onClick={addTodo} >Add Todo</button>
 			<button onClick={clearTodos}>Clear Complete</button>
